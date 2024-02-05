@@ -1,0 +1,15 @@
+# Support Cards
+
+[King_PrincessTowers]
+TID = "TID_SUPPORT_CARD_PRINCESS_TOWERS"
+TID_INFO = "TID_SUPPORT_CARD_INFO_PRINCESS_TOWERS"
+IconSWF = "sc/ui_support_card_princess.sc"
+IconExportName = "support_card_princess"
+Rarity = "Common"
+SpawnGroup = "King_PrincessTowers"
+SpawnGroup2v2 = "King_PrincessTowers2v2"
+NotVisible = false
+NotInUse = false
+UnlockArena = "Arena1"
+HighresImageFilename = "image/chr_support_cards/support_card_hires_princess.png"
+StatCharacter = "PrincessTower"

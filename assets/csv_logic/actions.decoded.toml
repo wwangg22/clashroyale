@@ -1,0 +1,158 @@
+#add here the actions 
+
+[RoyalGiant_EV1_PushBack]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "EvoRoyalGiantPush_EV1"
+ParentGOAsSource=true
+
+[Recruit_EV1_StartCharge]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "RecruitsCharge_EV1"
+SpawnTime = 999999
+#by default the source is who triggered the action (the attacker that made the recruit losing his shield, but in this case we wasnt the recruite to be the source of the buff. The level of the buff should be the level of the recruit
+ParentGOAsSource=true
+
+[Knight_EV1_ProtectionVFX]
+Effect = "evo_knight_shield"
+EffectFlags = "FollowParent,ParticlesFollowParent"
+
+[WaitForKingTowerActivation]
+ClassType="ActionWaitToActivate"
+Condition="KingTowerDamaged,CoopKingTowerDamaged,TowerDestroyed,CoopTowerDestroyed"
+ActivationDelay = 3300
+ActivateEffect="King_player_activate"
+ActivateEffectNpcBattle="King_enemy_activate_training"
+
+[CloneAction]
+ClassType="ActionClone"
+OnClonedAction="SpawnCloneBufAction"
+SpawnDeployBaseAnim="filter_hologram"
+
+[SpawnCloneBufAction]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Clone"
+SpawnTime = 500
+
+[Bats_EV1_HelingVFX]
+Effect = "evolution_bats_heal"
+EffectFlags = "TargetEffect"
+
+#-------------------------------------------------------------------
+[Spawn_ChampionGuardCharge]
+ClassType="ActionSpawnGuard"
+SpawnData = "ChampionGuard"
+# TargetRadius - how far the guard dashes  
+TargetRadius=4500
+# AppearBehindAtDistance - how behind the Guard appears
+AppearBehindAtDistance = 2000
+PushBackStrength=2500
+PushBackRadius=2500
+DistanceProportinalPush=true
+ContinuosPushBack=true
+#push damage is a one shot damage
+PushBackDamage=400
+StopPriceMovementUntilGuardArrive=true
+ForcePushBack=true
+PushBackInvisible=true
+#this make the guard ignoring units that are jumping, dashing, dragging....
+#FullPushBackCollisionCheck=true
+ActionDelay=825
+
+#-------------------------------------------------------------------
+
+[LittlePrinceWaitGuard]
+ClassType="ActionWithDuration"
+ActionDuration=1500
+GameTagsToSet="NO_MOVE"
+[LittlePrinceWaitGuard.NextAction]
+ClassType="ActionSpawn"
+SpawnType = "AreaEffectType"
+SpawnData = "DummySpawnLittlePrinceGuard"
+
+#LittlePrince speedup
+[LittlePrinceChooseAttack]
+ClassType="ActionFilter"
+Condition="attack_count == 0"
+OnTrueAction="LittlePrinceChangeAnim_to_0"
+[LittlePrinceChooseAttack.OnFalseAction]
+ClassType="ActionFilter"
+Condition="attack_count == 3"
+OnTrueAction="LittlePrinceSpeedup1"
+[LittlePrinceChooseAttack.OnFalseAction.OnFalseAction]
+ClassType="ActionFilter"
+Condition="attack_count == 6"
+OnTrueAction="LittlePrinceSpeedup2"
+[LittlePrinceChooseAttack.OnFalseAction.OnFalseAction.OnFalseAction]
+ClassType="ActionFilter"
+Condition="attack_count == 7"
+OnTrueAction="LittlePrinceChangeAnim_to_2"
+
+[LittlePrinceSpeedup1]
+ClassType="ActionSpawn"
+SpawnType="BuffType"
+SpawnData="LittlePrinceLvl1"
+SpawnTime=999999
+
+[LittlePrinceSpeedup2]
+ClassType="ActionSpawn"
+SpawnType="BuffType"
+SpawnData="LittlePrinceLvlMax"
+SpawnTime=999999
+NextAction="LittlePrinceChangeAnim_to_1"
+
+[PlayMaxedSpeedSFX]
+Effect = "little_prince_maxed_speed"
+
+[LittlePrinceChangeAnim_to_0]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 0
+
+[LittlePrinceChangeAnim_to_1]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 1
+NextAction="PlayMaxedSpeedSFX"
+
+[LittlePrinceChangeAnim_to_2]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 2
+
+#-------------------------------------------------------------------
+[Archer_EV1_Attack1]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 0
+
+[Archer_EV1_Attack2]
+ClassType="ActionSetAttackSequenceIndex"
+AttackIndex = 1
+
+[Archer_EV1_AttackSelect]
+ClassType="ActionFilter"
+Condition = "!target_in_range(5000)"
+OnTrueAction="Archer_EV1_Attack2"
+OnFalseAction="Archer_EV1_Attack1"
+
+#-------------------------------------------------------------------
+# Spawn dummy buff target, this just adds the filter and effects
+[IceSpirits_Hit_EV1]
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "IceSpirits_Target_EV1"
+SpawnTime = 6000
+
+#-------------------------------------------------------------------
+# Spawn Delayed Freeze, December 2023 Event
+[FreezeTimerAction]
+ActionDelay=10000
+ClassType="ActionSpawn"
+SpawnType = "BuffType"
+SpawnData = "Event_Freeze"
+SpawnTime = 999999
+
+[WarmUpAction]
+#ActionDelay=500
+ClassType="ActionWithDuration"
+ActionDuration=100
+GameTagsToSet="STOP_FREEZE"

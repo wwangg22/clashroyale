@@ -1,0 +1,4 @@
+# TOML file for normal AreaEffectObjects in area_effect_objects.csv
+
+[DummySpawnLittlePrinceGuard]
+OnStartingAction="Spawn_ChampionGuardCharge"

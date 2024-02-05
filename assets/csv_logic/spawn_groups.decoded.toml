@@ -1,0 +1,37 @@
+# Each spawn group defines a set of characters to spawn and their relative positions
+# For player objects (King and Princess towers), positions are specified relative to top left of tilemap
+# Positions will be flipped and mirrored for opponent and mirrored for 2v2 partners
+
+# Original 1v1 king & princess tower layout
+[King_PrincessTowers]
+    [[King_PrincessTowers.Objects]]
+    Data = "KingTower"
+    x = 18
+    y = 6
+    [[King_PrincessTowers.Objects]]
+    Data = "PrincessTower"
+    x = 7
+    y = 13
+
+    [[King_PrincessTowers.Objects]]
+    Data = "PrincessTower"
+    x = 29
+    y = 13
+
+# Original 2v2 towers - each player has only one princess tower
+[King_PrincessTowers2v2]
+    [[King_PrincessTowers2v2.Objects]]
+    Data = "KingTower"
+    x = 14
+    y = 6
+    [[King_PrincessTowers2v2.Objects]]
+    Data = "PrincessTower"
+    x = 7
+    y = 13
+
+# 1v1 heist game mode layout
+[Heist]
+    [[Heist.Objects]]
+    Data = "HeistStorage"
+    x = 18
+    y = 6

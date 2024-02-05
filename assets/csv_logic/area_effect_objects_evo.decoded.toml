@@ -1,0 +1,64 @@
+# AureEffectObjects used by evolved cards
+
+[EvoRoyalGiantPush_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 1
+	Radius = 3000
+	OneShotEffect = "royal_giant_evo_push_back"
+	Pushback = 1000
+	Damage = 32
+	OnlyEnemies = true
+	HitsGround = true
+	Tags = "NO_AOE_PUSHBACK_VFX"
+
+[FirecrackerFireworksBig_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 2500
+	Radius = 2500
+	LoopingEffect = "Evo_fireworks_loop"
+	OneShotEffect = "Evo_fireworks_effect"
+	ScaledEffect = "Evo_fireworks_ground"
+	HitSpeed = 250
+	Buff = "FirecrackerFireworks_EV1"
+	BuffTime = 400
+	BuffNumber = 1
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+
+[FirecrackerFireworksSmall_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 2000
+	Radius = 1200
+	LoopingEffect = "Evo_fireworks_small_loop"
+	OneShotEffect = "Evo_fireworks_small_effect"
+	ScaledEffect = "Evo_fireworks_small_ground"
+	HitSpeed = 250
+	Buff = "FirecrackerFireworks_EV1"
+	BuffTime = 400
+	BuffNumber = 1
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+
+[IceSpiritsAOE_EV1]
+
+	Rarity = "Common"
+	LifeDuration = 6000
+	AffectsHidden = true
+	Radius = 1500
+	NoFollowObjectEffect = "Evolution_Ice_Spirit_Crystal_Ground"
+	HitEffect = "Evo_icespirit_projectile_hit"
+	HitSpeed = 3000
+	Damage = 43
+	Buff = "Freeze"
+	BuffTime = 1300
+	BuffNumber = 1
+	OnlyEnemies = true
+	HitsGround = true
+	HitsAir = true
+	FollowBehaviour = "FollowTarget"
+	StayAfterParentDies = true

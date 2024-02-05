@@ -1,0 +1,23 @@
+# CharcaterBuff
+
+[LittlePrinceLvl1]
+AliveIfTrue="attack_count >= 3 && attack_count <= 5"
+
+[LittlePrinceLvlMax]
+AliveIfTrue="attack_count >= 6"
+
+[IceSpirits_Target_EV1]
+	Rarity="Common"
+	TID="TID_SPELL_RAGE"
+	FilterFile="sc/effects.sc"
+	FilterExportName="filter_cold"
+	TopEffect="Evolution_Ice_Spirit_Crystal"
+	TopEffectVerticalOffset=28
+	TopEffectDisabledForAttachedCharacters=true
+	NotCloned=true
+
+[Event_FreezeTimer]
+AliveIfTrue="!STOP_FREEZE()"
+
+[Event_Freeze]
+AliveIfTrue="!STOP_FREEZE()"

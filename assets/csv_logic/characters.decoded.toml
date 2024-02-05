@@ -1,0 +1,15 @@
+# Characters TOML
+
+[ChampionGuard]
+DeployTimeChangesDeployAnim=true
+# to remove
+IngamePathfindVisible=true
+
+[LittlePrince]
+AnimationsKeepLastFrame=true
+ResetHitTimerWhenNoTarget=true
+OnStartingAttackAction="LittlePrinceChooseAttack"
+AttackSequence=[0,1,2]
+AttackSequenceMode="None"
+Projectile2="LittlePrinceProjectile"
+Projectile3="LittlePrinceProjectile"
